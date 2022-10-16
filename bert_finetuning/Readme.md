@@ -19,7 +19,8 @@ and there are much more in the git...
 
 # Adaptations:
 --------------
-You can look at "run_ner.py" or "modeling.py" and search for "SY:", the adaptations I did are commented with explanation.
+You can look at "run_ner.py" or "modeling.py" (add BertForXXXClassification).
+Search for "SY:", the adaptations I did are commented with explanation.
 Then, I recommend you firstly to understand what the script tries to do in high level.
 
 Some examples for changes:
@@ -28,3 +29,7 @@ There were other scripts where the datasets column names were not true (for exam
 2. Some scripts require additional files, for example "run_qa.py" requires you bring with you "utils_qa.py" too (it also found in the transformers script), so make sure you understand your script's requirements.
 3. In modeling.py, you should put the BERT finetuning model (BertForTokenClassification for NER for example).
 I copied the right ones from: https://github.com/huggingface/transformers/blob/main/src/transformers/models/bert/modeling_bert.py.
+
+# Datasets we used:
+-------------------
+1. run_ner.py: English - conllpp, Turkish - polyglot_ner
