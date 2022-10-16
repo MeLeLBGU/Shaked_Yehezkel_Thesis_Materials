@@ -9,7 +9,6 @@ In addition, you can find here "modeling.py", that is required to replace the "a
 If you ever would like to adapt more tasks, check the following sections out:
 
 # Some transformers useful original links:
-------------------------------------------
 1. GLUE FT: https://github.com/huggingface/transformers/blob/main/examples/pytorch/text-classification/run_glue.py
 2. XNLI FT: https://github.com/huggingface/transformers/blob/main/examples/pytorch/text-classification/run_xnli.py
 3. SWAG FT: https://github.com/huggingface/transformers/blob/main/examples/pytorch/multiple-choice/run_swag.py
@@ -18,7 +17,6 @@ If you ever would like to adapt more tasks, check the following sections out:
 and there are much more in the git...
 
 # Adaptations:
---------------
 You can look at "run_ner.py" or "modeling.py" (add BertForXXXClassification).
 Search for "SY:", the adaptations I did are commented with explanation.
 Then, I recommend you firstly to understand what the script tries to do in high level.
@@ -31,5 +29,4 @@ There were other scripts where the datasets column names were not true (for exam
 I copied the right ones from: https://github.com/huggingface/transformers/blob/main/src/transformers/models/bert/modeling_bert.py.
 
 # Datasets we used:
--------------------
 1. run_ner.py: English - conllpp, Turkish - polyglot_ner

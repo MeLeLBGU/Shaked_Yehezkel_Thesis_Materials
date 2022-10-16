@@ -1,5 +1,4 @@
 ## Auto-Restart:
-----------------
 Slurm can cancel your job whenever it wants.
 I wanted to have automatic mechanism to restart the job from last checkpoint.
 For that I used slurm "--signal" parameter to make it send signal to my job just before it ends it,
@@ -9,7 +8,6 @@ and "stage2" had the tailored command to start over from checkpoint.
 See example for vocabulary creation script in later section.
 
 ## Restrictions:
-----------------
 It turns out that some nodes in slurm are better than others, in term of memory consumption, gpu types, etc.
 You can specify nodelist of nodes you want to execute on, or how many memory you want..
 For example, this is the combination that worked for me (on TAU slurm)-
@@ -25,11 +23,11 @@ For example, this is the combination that worked for me (on TAU slurm)-
 (killable is the partition with GPUs, cpu-killable is CPU-only)
 
 ## Other:
-----------
 1. You can use %j in the script to embed the jobid (for example to get another name for output\error file).
 
+--------------------------------------------------------------------------------------------------------------
+
 ## Practical Examples:
-----------------------
 
 #### Example of batch files for vocabulary creation:
 

@@ -7,8 +7,9 @@ In order to pretrain bert model for your created vocabulary, do the following:
 6. Continue from checkpoint 
 See instructions for how to do that in the following sections.
 
+----------------------------------------------------------------------------------------------------------------
+
 # 1) One-time preparations:
-----------------------------
 In order to pretrain bert (and later finetuning it), we chose to use the "academic-budget-bert" code (https://arxiv.org/abs/2104.07705).
 
 1. Clone https://github.com/IntelLabs/academic-budget-bert
@@ -16,7 +17,6 @@ In order to pretrain bert (and later finetuning it), we chose to use the "academ
 3. Install the requirements (pip install -r requirements.txt) - see "Installation" section in academic-budget-bert readme.
 
 # 2) How to create tokenizer for bert24 code?
-----------------------------------------------
 After we have a vocab file, we should have it in the huggingface format so we can pass it as input to Bert24 pretraining.
 
 1. Create new folder, with the name of your tokenizer (e.g. “sage-tokenizer” or “bpe-tokenizer).
@@ -39,7 +39,6 @@ Note that after you have a newly tokenizer and vocab file, you should create new
 (You must create new samples for every new tokenizer!)
 
 # 3) Prepare dataset:
----------------------
 Refers to: https://github.com/IntelLabs/academic-budget-bert/tree/04f6da685acf4dfc47b85b42307e17340e87fde3/dataset
 
 1. Process_data.py: SHOULD BE DONE ONCE-PER-DATASET
@@ -65,7 +64,6 @@ Refers to: https://github.com/IntelLabs/academic-budget-bert/tree/04f6da685acf4d
     c. After that it loads articles (lines) into dictionary of articles, segment each article to sentences, and randomly divide them to shards. Finally writes them to disk.
 
 # 4) How to create samples using your tokenizer?
--------------------------------------------------
 - generate_samples.py, should be done ONCE-PER-**TOKENIZER**.
 
     a. Creates hdf5 files.
@@ -82,7 +80,6 @@ python generate_samples.py --dir ../data/out/ -o ../data/samples_bpe16k --dup_fa
 3. The path to the just-created samples should be given to run_pretraining and the finetuning scripts.
 
 # 5) How to pretrain bert24?
------------------------------
 1. Make sure you have the correct tokenizer (look at “2) How to create tokenizer for bert24 code?”).
 2. Upload your tokenizer folder to the server, I used to put it under the “academic-budget-bert” directory just cloned.
 3. Change “pretrain_bert.sh” according to your parameters. Notice especially:
@@ -103,7 +100,6 @@ python generate_samples.py --dir ../data/out/ -o ../data/samples_bpe16k --dup_fa
 5. After 24 hours (or how many hours you wanted) you should have the first checkpoint in your output dir you chose.
 
 # 6) How to continue after 24 hours?
------------------------------
 You probably now have the checkpoint under the output dir you chose.
 Slurm ends just a little before 24 hours for a job, so it probably did not end the 24 hours pretraining….
 
