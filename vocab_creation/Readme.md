@@ -15,12 +15,14 @@ Dataset:
 2. Bzip2 -vdk <XX>wiki-latest-pages-articles.xml.bz2 (unzip)
 
 In this step we get XML of wikipedia articles.
+
 3. Preprocess: (This command may take some time, even couple of hours)
 from the academic-budget-bert/dataset directory, execute:
 python process_data.py -f <XX>wiki-latest-pages-articles.xml -o data/ --type wiki
 
 In this step we obtain "wiki_one_article_per_line.txt", which is in the right format for the vocab creation script.
 Anyway, it contains veryyyy long lines - every line is an article, which seems to be too much for the script… 
+
 4. So you might want to execute "preprocess_for_sage.py" too. (from \utils in this repo).
 Now you have file with short wiki lines.
 
